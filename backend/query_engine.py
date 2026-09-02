@@ -209,8 +209,6 @@ def get_profit_by_category():
             }
             for row in result
         ]
-
-
 # --------------------------------------------------
 # Revenue Trend
 # --------------------------------------------------
@@ -229,7 +227,6 @@ def get_revenue_trend():
     with engine.connect() as connection:
 
         result = connection.execute(text(query))
-
         return [
             {
                 "month": str(row.year),
@@ -237,5 +234,6 @@ def get_revenue_trend():
             }
             for row in result
         ]
+
 
 
