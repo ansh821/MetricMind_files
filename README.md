@@ -1,8 +1,81 @@
 # MetricMind_files
 
+## Project structure
 This is my project structure which I am follow .
 
-## 📁 Project Structure
+                    ┌─────────────────────┐
+                    │      USER /         │
+                    │   BUSINESS USER     │
+                    └──────────┬──────────┘
+                               │
+                    Natural Language Query
+                               ↓
+                    ┌─────────────────────┐
+                    │    USER INTERFACE   │
+                    │   React + Vite      │
+                    │                     │
+                    │ Dashboard           │
+                    │ Charts              │
+                    │ Ask MetricMind      │
+                    │ Chat History        │
+                    │ Saved Questions     │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │      AI AGENT       │
+                    │       Ollama        │
+                    │                     │
+                    │ Intent Detection    │
+                    │ Understand Question │
+                    │ Select Metric        │
+                    │ Select Dimension     │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+              ┌────────────────────────────────┐
+              │        SEMANTIC LAYER          │
+              │          metrics.py            │
+              │                                │
+              │ Metrics: Revenue, Profit,      │
+              │ Profit Margin                  │
+              │                                │
+              │ Dimensions: Region, Category,  │
+              │ Product, Country, Market...    │
+              └───────────────┬────────────────┘
+                              │
+                              ↓
+                    ┌─────────────────────┐
+                    │    QUERY ENGINE     │
+                    │   query_engine.py   │
+                    │                     │
+                    │ Governed SQL Queries│
+                    │ Aggregation         │
+                    │ Filtering           │
+                    │ Ranking             │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │     POSTGRESQL      │
+                    │      DATABASE       │
+                    │                     │
+                    │ Sales Data          │
+                    │ Users               │
+                    │ Chat History        │
+                    │ Saved Questions     │
+                    └──────────┬──────────┘
+                               │
+                               ↓
+                    ┌─────────────────────┐
+                    │   BUSINESS ANSWER   │
+                    │                     │
+                    │ KPI Cards           │
+                    │ Charts              │
+                    │ Tables              │
+                    │ AI Insights         │
+                    └─────────────────────┘
+## 📁 Project file Structure
 
 ```text
 MetricMind/
@@ -47,3 +120,4 @@ MetricMind/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+
