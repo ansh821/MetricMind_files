@@ -1,6 +1,5 @@
-# MetricMind Semantic Layer
-# Central definition of governed business metrics and dimensions
-
+# MetricMind Semantic Layer.
+# Central definition of governed business metrics and dimensions.
 
 METRICS = {
 
@@ -32,7 +31,6 @@ METRICS = {
     },
 
 }
-
 
 DIMENSIONS = {
 
