@@ -2,10 +2,8 @@ from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
-
 from agent_router import run_metricmind_agent
 from response_generator import generate_response
-
 from metrics import METRICS, DIMENSIONS
 
 from query_engine import (
@@ -26,7 +24,7 @@ app = FastAPI(title="MetricMind API")
 
 
 # --------------------------------------------------
-# Allow React frontend to communicate with FastAPI
+# Allow React frontend to communicate with FastAPI.
 # --------------------------------------------------
 
 app.add_middleware(
@@ -50,7 +48,6 @@ def home():
     return {
         "message": "MetricMind Backend is running!"
     }
-
 
 # --------------------------------------------------
 # Ask MetricMind - AI Agent Endpoint
