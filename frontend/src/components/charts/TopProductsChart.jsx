@@ -24,7 +24,7 @@ function TopProductsChart({ data }) {
       <div className="card-header">
         <div>
           <h2>Top Products</h2>
-          <p>Products generating the highest revenue</p>
+          <p>Products generating the highest revenue.</p>
         </div>
       </div>
 
