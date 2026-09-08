@@ -16,8 +16,9 @@ function AISection({
             <h2>Ask MetricMind</h2>
           </div>
 
+
           <p>
-            Ask questions about your business data in natural language.
+            Ask questions about your business data in  the natural language.
           </p>
         </div>
 
