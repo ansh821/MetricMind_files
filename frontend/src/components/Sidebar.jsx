@@ -45,7 +45,7 @@ function Sidebar() {
           </div>
 
           <div>
-            <strong>Anshika Chauhan</strong>
+            <strong>Anshika_Chauhan</strong>
             <small>Executive</small>
           </div>
 
