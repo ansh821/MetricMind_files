@@ -95,7 +95,7 @@ function Dashboard({
             title="Sales"
             value={
               metricsLoading
-                ? "Loading..."
+                ? "Loading...."
                 : metricsError
                 ? "N/A"
                 : dashboardMetrics?.sales?.toLocaleString()
@@ -153,7 +153,7 @@ function Dashboard({
                 <strong>Revenue is growing</strong>
 
                 <p>
-                  Revenue increased by 12.5%
+                  Revenue increased by 12.5% .
                   compared to the previous quarter.
                 </p>
               </div>
