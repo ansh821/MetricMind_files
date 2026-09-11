@@ -26,6 +26,7 @@ function MetricCard({
         {value}
       </h2>
 
+
       {/* Status */}
       <div className="change positive">
         <span className="metric-status">
@@ -40,5 +41,4 @@ function MetricCard({
     </div>
   );
 }
-
 export default MetricCard;
