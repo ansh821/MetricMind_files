@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Sidebar() {
   return (
     <aside className="sidebar">
@@ -7,35 +9,102 @@ function Sidebar() {
         <span>MetricMind</span>
       </div>
 
-      <nav>
+      <nav className="sidebar-nav">
 
-        <a className="nav-item active" href="#">
-          <span>▦</span>
-          Dashboard
-        </a>
+        <div className="nav-section-title">
+          WORKSPACE
+        </div>
 
-        <a className="nav-item" href="#">
-          <span>◈</span>
-          Metrics
-        </a>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">▦</span>
+          <span>Dashboard</span>
+        </NavLink>
 
-        <a className="nav-item" href="#">
-          <span>◉</span>
-          AI Assistant
-        </a>
+        <NavLink
+          to="/metrics"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◈</span>
+          <span>Metrics</span>
+        </NavLink>
 
-        <a className="nav-item" href="#">
-          <span>◫</span>
-          Reports
-        </a>
+        <NavLink
+          to="/ai-assistant"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◉</span>
+          <span>AI Assistant</span>
+        </NavLink>
+
+        <NavLink
+          to="/reports"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◫</span>
+          <span>Reports</span>
+        </NavLink>
+
+        <div className="nav-section-title monitoring-title">
+          MONITORING
+        </div>
+
+        <NavLink
+          to="/notifications"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◌</span>
+          <span>Notifications</span>
+          <span className="notification-badge">3</span>
+        </NavLink>
+
+        <div className="nav-section-title history-title">
+          HISTORY
+        </div>
+
+        <NavLink
+          to="/chat-history"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◷</span>
+          <span>Chat History</span>
+        </NavLink>
+
+        <NavLink
+          to="/saved-questions"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">☆</span>
+          <span>Saved Questions</span>
+        </NavLink>
 
       </nav>
 
       <div className="sidebar-bottom">
 
-        <a className="nav-item" href="#">
-          <span>⚙</span>
-          Settings
+        <a
+          className="nav-item settings-item"
+          href="#"
+          onClick={(e) => e.preventDefault()}
+        >
+          <span className="nav-icon">⚙</span>
+          <span>Settings</span>
         </a>
 
         <div className="user-profile">
@@ -44,10 +113,14 @@ function Sidebar() {
             AC
           </div>
 
-          <div>
-            <strong>Anshika_Chauhan</strong>
+          <div className="user-info">
+            <strong>Anshika Chauhan</strong>
             <small>Executive</small>
           </div>
+
+          <span className="user-menu">
+            ⋮
+          </span>
 
         </div>
 

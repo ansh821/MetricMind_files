@@ -2,24 +2,52 @@ function Header() {
   return (
     <header className="header">
 
-      <div>
-        <h1>Executive Dashboard</h1>
+      {/* Page Information */}
+      <div className="header-info">
+
+        <div className="breadcrumb">
+          <span>Workspace</span>
+          <span className="breadcrumb-separator">/</span>
+          <span className="breadcrumb-active">Dashboard</span>
+        </div>
+
+        <h1>
+          Executive Dashboard
+        </h1>
 
         <p>
-          Welcome back, Anshika.
-          Here's your business overview.
+          Monitor your business performance and
+          explore insights with MetricMind.
         </p>
+
       </div>
 
+      {/* Header Actions */}
       <div className="header-actions">
 
-        <button className="date-button">
-          Last Quarter ▾
+        {/* Period Selector */}
+        <button
+          className="date-button period-button"
+          type="button"
+        >
+          <span className="calendar-icon">▣</span>
+          <span>Last Quarter</span>
+          <span className="dropdown-arrow">▾</span>
         </button>
 
-        <button className="notification">
-          🔔
-          <span className="notification-badge">3</span>
+        {/* Notification */}
+        <button
+          className="notification"
+          type="button"
+          aria-label="Notifications"
+        >
+          <span className="notification-icon">
+            🔔
+          </span>
+
+          <span className="notification-badge">
+            3
+          </span>
         </button>
 
       </div>

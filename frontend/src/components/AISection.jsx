@@ -17,7 +17,7 @@ function AISection({
           </div>
 
           <p>
-            Ask questions about your business data in  the natural language.
+            Ask questions about your business data in natural language.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ function AISection({
 
         <input
           type="text"
-          placeholder="Ask MetricMind a question."
+          placeholder="Ask MetricMind a question..."
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => {

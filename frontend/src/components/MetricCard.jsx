@@ -10,15 +10,16 @@ function MetricCard({
 
       {/* Card Header */}
       <div className="metric-top">
-        <span className="metric-title">{title}</span>
+        <span className="metric-title">
+          {title}
+        </span>
 
-        <button
+        <span
           className="metric-menu"
-          type="button"
-          aria-label={`${title} options`}
+          aria-hidden="true"
         >
           •••
-        </button>
+        </span>
       </div>
 
       {/* Main Value */}
@@ -28,6 +29,7 @@ function MetricCard({
 
       {/* Status */}
       <div className="change positive">
+
         <span className="metric-status">
           ↗ {status}
         </span>
@@ -35,9 +37,11 @@ function MetricCard({
         <span className="metric-subtitle">
           {subtitle}
         </span>
+
       </div>
 
     </div>
   );
 }
+
 export default MetricCard;
