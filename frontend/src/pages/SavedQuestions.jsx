@@ -10,7 +10,7 @@ function SavedQuestions() {
   const [error, setError] = useState("");
 
   // =========================================================
-  // LOAD SAVED QUESTIONS
+  // LOAD SAVED QUESTIONS.
   // =========================================================
 
   const loadSavedQuestions = async () => {
