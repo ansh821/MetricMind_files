@@ -27,16 +27,19 @@ function Dashboard({
 
   formatCurrency,
   formatPercentage,
-  
 }) {
   return (
     <div className="app">
 
+      {/* Sidebar */}
       <Sidebar />
 
       <main className="main-content">
 
+        {/* Header */}
         <Header />
+
+        {/* Refresh Button */}
         <div className="refresh-container">
           <button
             className="date-button"
@@ -46,7 +49,11 @@ function Dashboard({
             {metricsLoading ? "Refreshing..." : "↻ Refresh Data"}
           </button>
         </div>
-        {/* Metric Cards */}
+
+        {/* =====================================================
+            KPI METRIC CARDS
+        ===================================================== */}
+
         <section className="metrics-grid">
 
           <MetricCard
@@ -95,7 +102,7 @@ function Dashboard({
             title="Sales"
             value={
               metricsLoading
-                ? "Loading...."
+                ? "Loading..."
                 : metricsError
                 ? "N/A"
                 : dashboardMetrics?.sales?.toLocaleString()
@@ -107,14 +114,24 @@ function Dashboard({
 
         </section>
 
+        {/* =====================================================
+            ERROR MESSAGE
+        ===================================================== */}
+
         {metricsError && (
           <div className="answer-box">
             {metricsError}
-            <p>Make sure FastAPI backend is running.</p>
+
+            <p>
+              Make sure FastAPI backend is running.
+            </p>
           </div>
         )}
 
-        {/* AI Section */}
+        {/* =====================================================
+            AI ASSISTANT
+        ===================================================== */}
+
         <AISection
           question={question}
           setQuestion={setQuestion}
@@ -123,55 +140,142 @@ function Dashboard({
           handleAsk={handleAsk}
         />
 
-        {/* Charts */}
+        {/* =====================================================
+            ANALYTICS CHARTS
+        ===================================================== */}
+
         <section className="dashboard-grid">
 
-          <RevenueChart regionData={regionData} />
+          {/* Revenue by Region */}
+          <RevenueChart
+            regionData={regionData}
+          />
 
-          <ProfitPieChart data={profitData} />
+          {/* Profit by Category */}
+          <ProfitPieChart
+            data={profitData}
+          />
 
-          <RevenueTrendChart data={revenueTrendData} />
+          {/* Revenue Trend */}
+          <RevenueTrendChart
+            data={revenueTrendData}
+          />
 
-          <TopProductsChart data={topProductsData} />
+          {/* Top Profitable Products */}
+          <TopProductsChart
+            data={topProductsData}
+          />
 
-          {/* AI Insights */}
+          {/* =================================================
+              AI INSIGHTS
+          ================================================= */}
+
           <div className="insights-card">
 
             <div className="card-header">
               <div>
                 <h2>AI Insights</h2>
-                <p>Powered by MetricMind</p>
+
+                <p>
+                  Generated from current business metrics
+                </p>
               </div>
             </div>
 
+            {/* Revenue Insight */}
             <div className="insight">
+
               <div className="insight-icon">
                 ↗
               </div>
 
               <div>
-                <strong>Revenue is growing</strong>
+                <strong>
+                  Revenue performance
+                </strong>
 
                 <p>
-                  Revenue increased by 12.5% .
-                  compared to the previous quarter.
+                  Current revenue is{" "}
+                  <strong>
+                    {metricsLoading
+                      ? "Loading..."
+                      : metricsError
+                      ? "N/A"
+                      : formatCurrency(
+                          dashboardMetrics?.revenue
+                        )}
+                  </strong>{" "}
+                  across{" "}
+                  <strong>
+                    {metricsLoading
+                      ? "..."
+                      : metricsError
+                      ? "N/A"
+                      : dashboardMetrics?.sales?.toLocaleString()}
+                  </strong>{" "}
+                  sales.
                 </p>
               </div>
+
             </div>
 
+            {/* Profitability Insight */}
             <div className="insight">
+
+              <div className="insight-icon">
+                $
+              </div>
+
+              <div>
+                <strong>
+                  Profitability
+                </strong>
+
+                <p>
+                  Current profit margin is{" "}
+                  <strong>
+                    {metricsLoading
+                      ? "Loading..."
+                      : metricsError
+                      ? "N/A"
+                      : formatPercentage(
+                          dashboardMetrics?.profit_margin
+                        )}
+                  </strong>{" "}
+                  with total profit of{" "}
+                  <strong>
+                    {metricsLoading
+                      ? "Loading..."
+                      : metricsError
+                      ? "N/A"
+                      : formatCurrency(
+                          dashboardMetrics?.profit
+                        )}
+                  </strong>.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Category Insight */}
+            <div className="insight">
+
               <div className="insight-icon warning">
                 !
               </div>
 
               <div>
-                <strong>Margin needs attention</strong>
+                <strong>
+                  Category analysis
+                </strong>
 
                 <p>
-                  European margins decreased
-                  by 3.4% and require analysis.
+                  Review Technology, Furniture and
+                  Office Supplies performance using
+                  the category analytics above.
                 </p>
               </div>
+
             </div>
 
             <button className="insights-button">
