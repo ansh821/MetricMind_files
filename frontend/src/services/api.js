@@ -1,9 +1,5 @@
 const API_BASE_URL = "http://127.0.0.1:8000";
 
-// -----------------------------------------
-// Common API Request Helper
-// -----------------------------------------
-
 const apiRequest = async (endpoint, options = {}) => {
   const response = await fetch(
     `${API_BASE_URL}${endpoint}`,
@@ -33,60 +29,87 @@ const apiRequest = async (endpoint, options = {}) => {
 };
 
 
-// -----------------------------------------
-// Dashboard Metrics
-// -----------------------------------------
+/* =========================================================
+   DASHBOARD METRICS
+========================================================= */
 
 export const getDashboardMetrics = async () => {
   return apiRequest("/metrics/summary");
 };
 
 
-// -----------------------------------------
-// Revenue By Region
-// -----------------------------------------
-
 export const getRevenueByRegion = async () => {
   return apiRequest("/metrics/revenue-by-region");
 };
 
-
-// -----------------------------------------
-// Profit By Category
-// -----------------------------------------
 
 export const getProfitByCategory = async () => {
   return apiRequest("/metrics/profit-by-category");
 };
 
 
-// -----------------------------------------
-// Revenue Trend
-// -----------------------------------------
-
 export const getRevenueTrend = async () => {
   return apiRequest("/metrics/revenue-trend");
 };
 
-
-// -----------------------------------------
-// Top Products
-// -----------------------------------------
 
 export const getTopProducts = async () => {
   return apiRequest("/metrics/top-products");
 };
 
 
-// -----------------------------------------
-// Ask MetricMind
-// -----------------------------------------
+/* =========================================================
+   AI ASSISTANT
+========================================================= */
 
 export const askMetricMind = async (question) => {
   return apiRequest(
-    `/ask?question=${encodeURIComponent(question)}&user_id=4`,
+    `/ask?question=${encodeURIComponent(
+      question
+    )}&user_id=4`,
     {
       method: "POST",
     }
+  );
+};
+
+
+/* =========================================================
+   CHAT HISTORY
+========================================================= */
+
+export const getChatHistory = async (
+  userId = 4
+) => {
+  return apiRequest(
+    `/chat-history/${userId}`
+  );
+};
+
+
+/* =========================================================
+   SAVED QUESTIONS
+========================================================= */
+
+export const saveQuestion = async (
+  question,
+  userId = 4
+) => {
+  return apiRequest(
+    `/saved-questions?question=${encodeURIComponent(
+      question
+    )}&user_id=${userId}`,
+    {
+      method: "POST",
+    }
+  );
+};
+
+
+export const getSavedQuestions = async (
+  userId = 4
+) => {
+  return apiRequest(
+    `/saved-questions/${userId}`
   );
 };
